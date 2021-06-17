@@ -1,0 +1,50 @@
+kind: ServiceAccount
+apiVersion: v1
+metadata:
+  name: jenkins-development
+  namespace: development
+  selfLink: /api/v1/namespaces/development/serviceaccounts/jenkins-development
+  uid: 1cf23fc2-f855-444e-8d33-81c4a8de5854
+  resourceVersion: '21274479'
+  creationTimestamp: '2021-06-17T12:34:31Z'
+  annotations:
+    serviceaccounts.openshift.io/oauth-redirectreference.jenkins: >-
+      {"kind":"OAuthRedirectReference","apiVersion":"v1","reference":{"kind":"Route","name":"jenkins-development"}}
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: v1
+      time: '2021-06-17T12:34:31Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:serviceaccounts.openshift.io/oauth-redirectreference.jenkins': {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2021-06-17T12:34:31Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:secrets':
+          'k:{"name":"jenkins-development-token-spsqh"}':
+            .: {}
+            'f:name': {}
+    - manager: openshift-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2021-06-17T12:34:31Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:imagePullSecrets': {}
+        'f:secrets':
+          .: {}
+          'k:{"name":"jenkins-development-dockercfg-lnqkn"}':
+            .: {}
+            'f:name': {}
+secrets:
+  - name: jenkins-development-dockercfg-lnqkn
+  - name: jenkins-development-token-spsqh
+imagePullSecrets:
+  - name: jenkins-development-dockercfg-lnqkn
