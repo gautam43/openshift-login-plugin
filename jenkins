@@ -1,50 +1,61 @@
 kind: ServiceAccount
 apiVersion: v1
 metadata:
-  name: jenkins-development
-  namespace: development
-  selfLink: /api/v1/namespaces/development/serviceaccounts/jenkins-development
-  uid: 1cf23fc2-f855-444e-8d33-81c4a8de5854
-  resourceVersion: '21274479'
-  creationTimestamp: '2021-06-17T12:34:31Z'
   annotations:
     serviceaccounts.openshift.io/oauth-redirectreference.jenkins: >-
-      {"kind":"OAuthRedirectReference","apiVersion":"v1","reference":{"kind":"Route","name":"jenkins-development"}}
+      {"kind":"OAuthRedirectReference","apiVersion":"v1","reference":{"kind":"Route","name":"jenkins"}}
+  selfLink: /api/v1/namespaces/testing/serviceaccounts/jenkins
+  resourceVersion: '21255361'
+  name: jenkins
+  uid: d8a0c35d-a7bf-4111-84aa-7a44cc3de250
+  creationTimestamp: '2021-05-31T18:22:52Z'
   managedFields:
-    - manager: Mozilla
-      operation: Update
-      apiVersion: v1
-      time: '2021-06-17T12:34:31Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:metadata':
-          'f:annotations':
-            .: {}
-            'f:serviceaccounts.openshift.io/oauth-redirectreference.jenkins': {}
     - manager: kube-controller-manager
       operation: Update
       apiVersion: v1
-      time: '2021-06-17T12:34:31Z'
+      time: '2021-05-31T18:22:52Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:secrets':
-          'k:{"name":"jenkins-development-token-spsqh"}':
+          .: {}
+          'k:{"name":"jenkins-token-rgttt"}':
             .: {}
             'f:name': {}
     - manager: openshift-controller-manager
       operation: Update
       apiVersion: v1
-      time: '2021-06-17T12:34:31Z'
+      time: '2021-05-31T18:22:52Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:imagePullSecrets': {}
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:serviceaccounts.openshift.io/oauth-redirectreference.jenkins': {}
+          'f:labels':
+            .: {}
+            'f:template': {}
+            'f:template.openshift.io/template-instance-owner': {}
         'f:secrets':
-          .: {}
-          'k:{"name":"jenkins-development-dockercfg-lnqkn"}':
+          'k:{"name":"jenkins-dockercfg-wss5g"}':
             .: {}
             'f:name': {}
+    - manager: Mozilla
+      operation: Update
+      apiVersion: v1
+      time: '2021-06-17T11:22:04Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            'f:app': {}
+  namespace: testing
+  labels:
+    app: jenkins-persistant
+    template: jenkins-persistent-template
+    template.openshift.io/template-instance-owner: 0a7598ac-a336-4b4c-9deb-ad8e8be8251b
 secrets:
-  - name: jenkins-development-dockercfg-lnqkn
-  - name: jenkins-development-token-spsqh
+  - name: jenkins-token-rgttt
+  - name: jenkins-dockercfg-wss5g
 imagePullSecrets:
-  - name: jenkins-development-dockercfg-lnqkn
+  - name: jenkins-dockercfg-wss5g
